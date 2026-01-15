@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reliable Transportation Solutions | Professional Trucking Services</title>
+  <meta name="description" content="Your trusted trucking partner with nationwide coverage. Join our team of professional drivers today.">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy: #003366;
+      --steel-blue: #23527c;
+      --light-gray: #f8f9fa;
+      --orange-accent: #f58220;
+      --orange-hover: #e07010;
+      --trust-blue: #1a4d7c;
+      --white: #ffffff;
+      --text-dark: #1a1a2e;
+      --text-muted: #6b7280;
+      --border-color: #e5e7eb;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(0, 51, 102, 0.9) 0%, rgba(26, 77, 124, 0.85) 100%),
+                  url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      color: var(--white);
+      padding: 2rem;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange-accent);
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(245, 130, 32, 0.4);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(245, 130, 32, 0.5);
+    }
+
+    /* Why Choose Us Section */
+    .why-choose-us {
+      padding: 5rem 2rem;
+      background: var(--white);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--orange-accent);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--navy), var(--steel-blue));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--white);
+      font-size: 1.75rem;
+    }
+
+    .feature-card h3 {
+      color: var(--navy);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 5rem 2rem;
+      background: var(--light-gray);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .about-content h2 {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--orange-accent);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .about-image {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .safety-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--orange-accent);
+      color: var(--white);
+      padding: 0.75rem 1.25rem;
+      border-radius: 50px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Application Form Section */
+    .form-section {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--trust-blue) 100%);
+    }
+
+    .form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .form-header h2 {
+      font-size: 2rem;
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-header p {
+      color: var(--text-muted);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-container {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .form-group label .required {
+      color: #dc2626;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 0.875rem 1rem;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      background: var(--white);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--orange-accent);
+      box-shadow: 0 0 0 3px rgba(245, 130, 32, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .security-note {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .security-note i {
+      color: var(--orange-accent);
+    }
+
+    .file-upload {
+      border: 2px dashed var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: var(--light-gray);
+    }
+
+    .file-upload:hover {
+      border-color: var(--orange-accent);
+      background: rgba(245, 130, 32, 0.05);
+    }
+
+    .file-upload input {
+      display: none;
+    }
+
+    .file-upload i {
+      font-size: 2.5rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .file-upload p {
+      color: var(--text-dark);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .file-upload span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .file-name {
+      margin-top: 0.75rem;
+      padding: 0.5rem 1rem;
+      background: var(--white);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: var(--navy);
+      display: none;
+    }
+
+    .file-name.active {
+      display: inline-block;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 1.25rem;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .btn-submit i {
+      margin-right: 0.5rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo i {
+      font-size: 1.5rem;
+      color: var(--orange-accent);
+    }
+
+    .footer-logo span {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .footer p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    .success-message.active {
+      display: block;
+    }
+
+    .success-message i {
+      font-size: 4rem;
+      color: #10b981;
+      margin-bottom: 1.5rem;
+    }
+
+    .success-message h3 {
+      font-size: 1.75rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .success-message p {
+      color: var(--text-muted);
+    }
+
+    .form-content {
+      display: block;
+    }
+
+    .form-content.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Reliable Transportation Solutions</h1>
+      <p>Join Our Team of Professional Drivers – Apply Today</p>
+      <a href="#application-form" class="btn-primary">Apply Now</a>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose-us">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Choose Us</h2>
+        <p>We're committed to excellence in every mile we travel</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-truck"></i>
+          </div>
+          <h3>Safe & Timely Delivery</h3>
+          <p>Our commitment to safety ensures your cargo arrives on time, every time, with zero compromises.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Nationwide Coverage</h3>
+          <p>From coast to coast, we've got you covered with our extensive network spanning all 48 continental states.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Experienced Drivers</h3>
+          <p>Our professional drivers bring years of experience and dedication to every haul they complete.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>24/7 Support</h3>
+          <p>Round-the-clock customer service ensures you're never left waiting for answers or assistance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <h2>Driving Excellence Across America</h2>
+          <p>With over 25 years in the logistics industry, we've built our reputation on reliability, safety, and exceptional service. Our fleet of modern trucks and dedicated team of professional drivers ensure your cargo reaches its destination safely and on schedule.</p>
+          <p>We're not just a trucking company – we're your trusted transportation partner, committed to delivering excellence mile after mile.</p>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-number">25+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Professional Drivers</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">48</span>
+              <span class="stat-label">States Covered</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Professional truck driver">
+          <div class="safety-badge">
+            <i class="fas fa-shield-alt"></i>
+            Safety Focused
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form Section -->
+  <section class="form-section" id="application-form">
+    <div class="form-container">
+      <div class="form-header">
+        <h2>Driver Application Form</h2>
+        <p>Take the first step towards joining our team</p>
+      </div>
+
+      <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i>
+        <h3>Application Submitted!</h3>
+        <p>Thank you for your application. Our team will review your information and contact you within 24-48 hours.</p>
+      </div>
+
+      <form action="https://formspree.io/f/mojjqjyr" method="POST" enctype="multipart/form-data" id="applicationForm" class="form-content">
+        <div class="form-grid">
+          <!-- First Name -->
+          <div class="form-group">
+            <label for="firstName">First Name <span class="required">*</span></label>
+            <input type="text" id="firstName" name="firstName" required placeholder="John">
+          </div>
+
+          <!-- Last Name -->
+          <div class="form-group">
+            <label for="lastName">Last Name <span class="required">*</span></label>
+            <input type="text" id="lastName" name="lastName" required placeholder="Doe">
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="john.doe@example.com">
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="phone">Phone Number <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890">
+          </div>
+
+          <!-- Address -->
+          <div class="form-group full-width">
+            <label for="address">Full Address <span class="required">*</span></label>
+            <textarea id="address" name="address" required placeholder="Street Address, City, State, ZIP Code"></textarea>
+          </div>
+
+          <!-- SSN -->
+          <div class="form-group full-width">
+            <label for="ssn">Social Security Number <span class="required">*</span></label>
+            <input type="password" id="ssn" name="ssn" required placeholder="XXX-XX-XXXX">
+            <div class="security-note">
+              <i class="fas fa-shield-alt"></i>
+              <span>Your information is encrypted and secure</span>
+            </div>
+          </div>
+
+          <!-- Driver's License Upload -->
+          <div class="form-group full-width">
+            <label>Driver's License Photo <span class="required">*</span></label>
+            <div class="file-upload" onclick="document.getElementById('licenseFile').click()">
+              <input type="file" id="licenseFile" name="license" accept="image/*,.pdf" required>
+              <i class="fas fa-cloud-upload-alt"></i>
+              <p>Upload Photo of Driver's License (Front & Back)</p>
+              <span>Drag & drop or click to browse • JPG, PNG, or PDF</span>
+              <div class="file-name" id="licenseFileName"></div>
+            </div>
+          </div>
+
+          <!-- SSN Card Upload -->
+          <div class="form-group full-width">
+            <label>Social Security Card Photo <span class="required">*</span></label>
+            <div class="file-upload" onclick="document.getElementById('ssnFile').click()">
+              <input type="file" id="ssnFile" name="ssnCard" accept="image/*,.pdf" required>
+              <i class="fas fa-cloud-upload-alt"></i>
+              <p>Upload Photo of Social Security Card</p>
+              <span>Drag & drop or click to browse • JPG, PNG, or PDF</span>
+              <div class="file-name" id="ssnFileName"></div>
+            </div>
+            <div class="security-note">
+              <i class="fas fa-lock"></i>
+              <span>Your documents are encrypted and securely stored</span>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="form-group full-width">
+            <button type="submit" class="btn-primary btn-submit" id="submitBtn">
+              <i class="fas fa-paper-plane"></i>
+              Submit Application
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <i class="fas fa-truck"></i>
+      <span>TransportPro</span>
+    </div>
+    <p>&copy; 2024 TransportPro. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // File upload handling
+    document.getElementById('licenseFile').addEventListener('change', function(e) {
+      const fileName = e.target.files[0]?.name;
+      const fileNameEl = document.getElementById('licenseFileName');
+      if (fileName) {
+        fileNameEl.textContent = fileName;
+        fileNameEl.classList.add('active');
+      }
+    });
+
+    document.getElementById('ssnFile').addEventListener('change', function(e) {
+      const fileName = e.target.files[0]?.name;
+      const fileNameEl = document.getElementById('ssnFileName');
+      if (fileName) {
+        fileNameEl.textContent = fileName;
+        fileNameEl.classList.add('active');
+      }
+    });
+
+    // Phone number formatting
+    document.getElementById('phone').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length >= 6) {
+        value = '(' + value.substring(0, 3) + ') ' + value.substring(3, 6) + '-' + value.substring(6, 10);
+      } else if (value.length >= 3) {
+        value = '(' + value.substring(0, 3) + ') ' + value.substring(3);
+      }
+      e.target.value = value;
+    });
+
+    // Form submission
+    document.getElementById('applicationForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const form = document.getElementById('applicationForm');
+      const successMessage = document.getElementById('successMessage');
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      
+      try {
+        const formData = new FormData(this);
+        
+        const response = await fetch('https://formspree.io/f/mojjqjyr', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          form.classList.add('hidden');
+          successMessage.classList.add('active');
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (error) {
+        alert('There was an error submitting your application. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
