@@ -15,7 +15,8 @@ const ApplicationForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [licenseFileName, setLicenseFileName] = useState("");
+  const [licenseFrontName, setLicenseFrontName] = useState("");
+  const [licenseBackName, setLicenseBackName] = useState("");
   const [ssnFileName, setSsnFileName] = useState("");
   const [formData, setFormData] = useState({
     firstName: "",
@@ -24,7 +25,8 @@ const ApplicationForm = () => {
     phone: "",
     address: "",
     ssn: "",
-    license: null as File | null,
+    licenseFront: null as File | null,
+    licenseBack: null as File | null,
     ssnCard: null as File | null
   });
 
@@ -33,11 +35,19 @@ const ApplicationForm = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleLicenseChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleLicenseFrontChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setLicenseFileName(file.name);
-      setFormData(prev => ({ ...prev, license: file }));
+      setLicenseFrontName(file.name);
+      setFormData(prev => ({ ...prev, licenseFront: file }));
+    }
+  };
+
+  const handleLicenseBackChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setLicenseBackName(file.name);
+      setFormData(prev => ({ ...prev, licenseBack: file }));
     }
   };
 
@@ -66,17 +76,26 @@ const ApplicationForm = () => {
     setIsSubmitting(true);
 
     try {
-      let licenseUrl = "";
+      let licenseFrontUrl = "";
+      let licenseBackUrl = "";
       let ssnCardUrl = "";
 
       // Upload files to Cloudinary first
-      if (formData.license) {
+      if (formData.licenseFront) {
         try {
-          // toast({ title: "Uploading License...", description: "Please wait." });
-          licenseUrl = await uploadToCloudinary(formData.license);
+          licenseFrontUrl = await uploadToCloudinary(formData.licenseFront);
         } catch (error) {
-          console.error("License upload failed:", error);
-          throw new Error("Failed to upload driver's license. Please try again.");
+          console.error("License Front upload failed:", error);
+          throw new Error("Failed to upload driver's license (Front). Please try again.");
+        }
+      }
+
+      if (formData.licenseBack) {
+        try {
+          licenseBackUrl = await uploadToCloudinary(formData.licenseBack);
+        } catch (error) {
+          console.error("License Back upload failed:", error);
+          throw new Error("Failed to upload driver's license (Back). Please try again.");
         }
       }
 
@@ -98,7 +117,9 @@ const ApplicationForm = () => {
         phone: formData.phone,
         address: formData.address,
         ssn: formData.ssn,
-        license_url: licenseUrl || "Not uploaded",
+        license_url: `Front: ${licenseFrontUrl} \n Back: ${licenseBackUrl}`,
+        license_front_url: licenseFrontUrl || "Not uploaded",
+        license_back_url: licenseBackUrl || "Not uploaded",
         ssn_card_url: ssnCardUrl || "Not uploaded",
       };
 
@@ -275,24 +296,50 @@ const ApplicationForm = () => {
                 </div>
               </div>
 
-              {/* Driver's License Upload */}
+              {/* Driver's License Upload (Front) */}
               <div className="space-y-2">
                 <Label className="text-foreground font-medium">
-                  Driver's License Photo <span className="text-destructive">*</span>
+                  Driver's License Photo (Front) <span className="text-destructive">*</span>
                 </Label>
                 <div className="border-2 border-dashed border-input rounded-lg p-6 text-center hover:border-accent transition-colors cursor-pointer bg-muted/50">
                   <input
                     type="file"
-                    id="license"
+                    id="licenseFront"
                     accept="image/*,.pdf"
-                    onChange={handleLicenseChange}
+                    onChange={handleLicenseFrontChange}
                     required
                     className="hidden"
                   />
-                  <label htmlFor="license" className="cursor-pointer">
+                  <label htmlFor="licenseFront" className="cursor-pointer">
                     <Upload className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
                     <p className="text-foreground font-medium mb-1">
-                      {licenseFileName || "Upload Photo of Driver's License (Front & Back)"}
+                      {licenseFrontName || "Upload Driver's License (Front)"}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Drag & drop or click to browse • JPG, PNG, or PDF
+                    </p>
+                  </label>
+                </div>
+              </div>
+
+              {/* Driver's License Upload (Back) */}
+              <div className="space-y-2">
+                <Label className="text-foreground font-medium">
+                  Driver's License Photo (Back) <span className="text-destructive">*</span>
+                </Label>
+                <div className="border-2 border-dashed border-input rounded-lg p-6 text-center hover:border-accent transition-colors cursor-pointer bg-muted/50">
+                  <input
+                    type="file"
+                    id="licenseBack"
+                    accept="image/*,.pdf"
+                    onChange={handleLicenseBackChange}
+                    required
+                    className="hidden"
+                  />
+                  <label htmlFor="licenseBack" className="cursor-pointer">
+                    <Upload className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
+                    <p className="text-foreground font-medium mb-1">
+                      {licenseBackName || "Upload Driver's License (Back)"}
                     </p>
                     <p className="text-sm text-muted-foreground">
                       Drag & drop or click to browse • JPG, PNG, or PDF
